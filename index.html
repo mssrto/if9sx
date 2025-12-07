@@ -4,203 +4,228 @@
 <meta charset="UTF-8">
 <title>if9sx</title>
 <link rel="icon" type="image/png" href="https://i.ibb.co/B5tvCkTz/yourlogo.png">
+
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap');
 
-  html, body {
-    margin: 0;
-    height: 100%;
-    font-family: 'Almarai', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url("https://i.ibb.co/DP2JkxDd/image.png") no-repeat center center/cover;
-    color: white;
-    direction: rtl;
-    overflow: hidden;
-  }
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: 'Almarai', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("https://i.ibb.co/DP2JkxDd/image.png") no-repeat center center/cover;
+  color: white;
+  direction: rtl;
+}
 
-  .overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.75);
-    backdrop-filter: blur(5px);
-  }
+/* خلفية مغيمة */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+}
 
-  .card {
-    position: relative;
-    z-index: 3;
-    width: 330px;
-    background: rgba(30,30,30,0.45);
-    backdrop-filter: blur(14px);
-    border: 1px solid rgba(255,215,0,0.2);
-    border-radius: 26px;
-    padding: 28px;
-    text-align: center;
-    box-shadow: 0 0 40px rgba(0,0,0,0.6);
-    animation: show 1.1s ease;
-  }
+/* البطاقة */
+.card {
+  position: relative;
+  z-index: 2;
+  width: 380px;
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,200,0,0.25);
+  border-radius: 28px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
 
-  @keyframes show {
-    from { opacity: 0; transform: translateY(25px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+/* --- البروفايل + نيون + حركة --- */
+.avatar-container {
+  position: relative;
+  display: inline-block;
+  animation: float 3.5s ease-in-out infinite;
+}
 
-  .avatar-container {
-    position: relative;
-    display: inline-block;
-    animation: float 4s infinite ease-in-out;
-  }
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
 
-  @keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-  }
+.avatar-container img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px solid #facc15;
+  object-fit: cover;
+  box-shadow: 0 0 25px rgba(250,204,21,0.60);
+}
 
-  .avatar-glow {
-    position: absolute;
-    inset: -14px;
-    background: rgba(250,204,21,0.25);
-    filter: blur(25px);
-    border-radius: 50%;
-  }
+/* العنوان */
+h1 {
+  margin: 18px 0 4px;
+  font-size: 2rem;
+  color: #facc15;
+  text-shadow: 0 0 12px #facc15;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .avatar-container img {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    border: 3px solid #facc15;
-  }
+.title-icon {
+  width: 32px;
+  margin-left: 6px;
+}
 
-  h1 {
-    margin: 15px 0 4px;
-    font-size: 1.8rem;
-    color: #facc15;
-    text-shadow: 0 0 10px #facc15;
-  }
+/* تحت العنوان */
+.subtitle {
+  margin: 0;
+  font-size: 1rem;
+  color: #ccc;
+}
 
-  .subtitle {
-    color: #ccc;
-    font-size: 1rem;
-  }
+/* --- مربعات السوشل --- */
+.social-grid {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-    margin-top: 30px;
-  }
+/* إزالة الخط الأزرق بالكامل */
+.social-grid a,
+.social-grid a *,
+.social-item,
+.social-item * {
+  text-decoration: none !important;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
 
-  .grid-item {
-    background: rgba(255,215,0,0.08);
-    padding: 12px;
-    border-radius: 16px;
-    text-align: center;
-    border: 1px solid rgba(255,215,0,0.15);
-    transition: 0.3s;
-  }
+.social-item {
+  background: rgba(255,220,0,0.08);
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,215,0,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.25s;
+}
 
-  .grid-item:hover {
-    background: rgba(255,215,0,0.15);
-    transform: translateY(-4px);
-    box-shadow: 0 0 14px rgba(255,215,0,0.4);
-  }
+.social-item:hover {
+  transform: translateY(-4px);
+  background: rgba(255,220,0,0.13);
+  box-shadow: 0 0 12px rgba(255,215,0,0.45);
+}
 
-  .grid-item img {
-    width: 48px;
-    height: 48px;
-  }
+.social-item img {
+  width: 45px;
+  margin-bottom: 8px;
+}
 
-  .grid-item span {
-    display: block;
-    margin-top: 6px;
-    color: #facc15;
-    font-size: 1rem;
-  }
+.social-item span {
+  color: #facc15;
+  font-size: 1.2rem;
+}
 
-  .footer {
-    margin-top: 25px;
-    color: #aaa;
-    font-size: 0.8rem;
-  }
+/* الحقوق */
+.footer {
+  margin-top: 28px;
+  font-size: 0.8rem;
+  color: #ddd;
+}
 
-  /* مربع البث الصغير */
-  .twitch-mini {
-    position: fixed;
-    bottom: 15px;
-    left: 15px;
-    width: 200px;
-    height: 112px;
-    border-radius: 10px;
-    overflow: hidden;
-    z-index: 10;
-    border: 1px solid rgba(255,215,0,0.3);
-    box-shadow: 0 0 10px rgba(255,215,0,0.3);
-  }
-
-  .twitch-mini iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
+/* --- مربع البث الكبير --- */
+.twitch-box {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  width: 500px;
+  height: 280px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid #facc15;
+  box-shadow: 0 0 22px rgba(250,204,21,0.45);
+  z-index: 10;
+}
 </style>
 </head>
+
 <body>
 
-  <div class="overlay"></div>
+<div class="overlay"></div>
 
-  <!-- البطاقة -->
-  <div class="card">
-      <div class="avatar-container">
-        <div class="avatar-glow"></div>
-        <img src="https://i.ibb.co/B5tvCkTz/yourlogo.png" alt="profile">
-      </div>
+<!-- مربع البث -->
+<div class="twitch-box">
+  <iframe
+    src="https://player.twitch.tv/?channel=if9sx&parent=mssrto.github.io"
+    frameborder="0"
+    allowfullscreen="true"
+    scrolling="no"
+    width="100%"
+    height="100%">
+  </iframe>
+</div>
 
-      <h1>منورين حساباتي 🦆</h1>
-      <p class="subtitle">فولو يا صعلوق لو سمحت</p>
+<!-- البطاقة -->
+<div class="card">
 
-      <div class="grid">
-        <a class="grid-item" href="https://www.twitch.tv/if9sx" target="_blank">
-          <img src="https://i.ibb.co/YBkFzZTZ/twitch.png">
-          <span>تويتش</span>
-        </a>
-
-        <a class="grid-item" href="https://discord.com/invite/EQWBWrdaKj" target="_blank">
-          <img src="https://i.ibb.co/27Lx1jsr/discord.png">
-          <span>دسكورد</span>
-        </a>
-
-        <a class="grid-item" href="https://tiktok.com/@if9sz" target="_blank">
-          <img src="https://i.ibb.co/Csw60w7H/tiktok.png">
-          <span>تيك توك</span>
-        </a>
-
-        <a class="grid-item" href="https://www.instagram.com/f9sx?" target="_blank">
-          <img src="https://i.ibb.co/fd07YPQz/instagram.png">
-          <span>انستا</span>
-        </a>
-
-        <a class="grid-item" href="https://www.youtube.com/@f9sx" target="_blank">
-          <img src="https://i.ibb.co/Rnh74s1/youtube.png">
-          <span>يوتيوب</span>
-        </a>
-
-        <a class="grid-item" href="https://snapchat.com/@if9sx" target="_blank">
-          <img src="https://i.ibb.co/Fk9ZVQ7t/snapchat.png">
-          <span>سناب</span>
-        </a>
-      </div>
-
-      <p class="footer">جميع الحقوق bsm© ✔️</p>
+  <!-- صورة البروفايل -->
+  <div class="avatar-container">
+    <img src="https://i.ibb.co/B5tvCkTz/yourlogo.png" alt="profile">
   </div>
 
-  <!-- مربع البث الصغير -->
-  <div class="twitch-mini">
-      <iframe 
-        src="https://player.twitch.tv/?channel=if9sx&parent=mssrto.github.io" 
-        allowfullscreen>
-      </iframe>
+  <!-- العنوان -->
+  <h1>
+    <img class="title-icon" src="https://i.ibb.co/3M7c8rv/imag.png">
+    منورين حساباتي
+  </h1>
+
+  <p class="subtitle">فولو يا صعلوق لو سمحت</p>
+
+  <!-- ترتيب السوشل مثل الصورة -->
+  <div class="social-grid">
+
+    <!-- صف 1 -->
+    <a href="https://discord.com/invite/EQWBWrdaKj" target="_blank" class="social-item">
+      <img src="https://i.ibb.co/27Lx1jsr/discord.png">
+      <span>دسكورد</span>
+    </a>
+
+    <a href="https://www.twitch.tv/if9sx" target="_blank" class="social-item">
+      <img src="https://i.ibb.co/YBkFzZTZ/twitch.png">
+      <span>تويتش</span>
+    </a>
+
+    <!-- صف 2 -->
+    <a href="https://www.instagram.com/f9sx?" target="_blank" class="social-item">
+      <img src="https://i.ibb.co/fd07YPQz/instagram.png">
+      <span>انستا</span>
+    </a>
+
+    <a href="https://tiktok.com/@if9sz" target="_blank" class="social-item">
+      <img src="https://i.ibb.co/Csw60w7H/tiktok.png">
+      <span>تيك توك</span>
+    </a>
+
+    <!-- صف 3 -->
+    <a href="https://snapchat.com/@if9sx" target="_blank" class="social-item">
+      <img src="https://i.ibb.co/Fk9ZVQ7t/snapchat.png">
+      <span>سناب</span>
+    </a>
+
+    <a href="https://www.youtube.com/@f9sx" target="_blank" class="social-item">
+      <img src="https://i.ibb.co/Rnh74s1/YouTube.png">
+      <span>يوتيوب</span>
+    </a>
+
   </div>
+
+  <p class="footer">© جميع الحقوق bsm ✔️</p>
+
+</div>
 
 </body>
 </html>
