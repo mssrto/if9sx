@@ -72,9 +72,12 @@ h1 {
   align-items: center;
 }
 
+/* صورة صغيرة بجانب العنوان */
 .title-icon {
-  width: 32px;
-  margin-left: 6px;
+  width: 24px;       /* حجم الصورة */
+  height: 24px;
+  margin-left: 8px;  /* المسافة بين النص والصورة */
+  vertical-align: middle;
 }
 
 /* تحت العنوان */
@@ -94,7 +97,7 @@ h1 {
 
 /* إزالة الخط الأزرق بالكامل */
 .social-grid a,
-.social-grid a *,
+.social-grid a * ,
 .social-item,
 .social-item * {
   text-decoration: none !important;
@@ -177,10 +180,10 @@ h1 {
     <img src="https://i.ibb.co/B5tvCkTz/yourlogo.png" alt="profile">
   </div>
 
-  <!-- العنوان -->
+  <!-- العنوان مع الصورة الصغيرة -->
   <h1>
-    <img class="title-icon" src="https://i.ibb.co/3M7c8rv/imag.png">
     منورين حساباتي
+    <img src="https://i.postimg.cc/Vr5zLptQ/your-small-image.png" alt="icon" class="title-icon">
   </h1>
 
   <p class="subtitle">فولو يا صعلوق لو سمحت</p>
